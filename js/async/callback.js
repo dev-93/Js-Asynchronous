@@ -13,3 +13,20 @@ console.log("3");
 // 자바스크립트 엔진은 제일 위부터 아래로 실행
 // setTimeout은 브라우저 API니까 브라우저에게 callback 실행해달라고 요청
 // 지금 당장 실행하지 않고, 1초가 지나고 함수 불러줘
+
+// 콜백은 비동기일때만 쓰는것이 아니다.
+
+// 1. 동기적 콜백
+function printImmediately(print) {
+    print();
+}
+
+printImmediately(() => console.log("hello"));
+
+// 2. 비동기적 콜백
+function printWithDelay(print, timeout) {
+    setTimeout(print, timeout);
+}
+printWithDelay(() => console.log("async callback"), 2000);
+
+// 자바스크립트의 선언?이 호이스팅 된다.
