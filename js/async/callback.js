@@ -57,3 +57,28 @@ class UserStorage {
         }, 1000);
     }
 }
+
+const userStorage = new UserStorage();
+const id = prompt("enter your id");
+const password = prompt("enter your password");
+
+userStorage.loginUser(
+    id,
+    password,
+    (user) => {
+        userStorage.getRoles(
+            user,
+            (userWithRole) => {
+                alert(
+                    `hello ${userWithRole.name}, you have a ${userWithRole.role} role`
+                );
+            },
+            (error) => {
+                console.log(error);
+            }
+        );
+    },
+    (error) => {
+        console.log(error);
+    }
+);
