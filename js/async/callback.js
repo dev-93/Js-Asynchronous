@@ -34,18 +34,26 @@ printWithDelay(() => console.log("async callback"), 2000);
 // Callback Hell example
 
 class UserStorage {
-    loginUser (id, password, onSuccess, onError) {
-        setTimeout(()=> {
-            if(
-                (id ==="taenam" && password ==="123") || 
-                (id ==="nami" && password ==="1234")
+    loginUser(id, password, onSuccess, onError) {
+        setTimeout(() => {
+            if (
+                (id === "taenam" && password === "123") ||
+                (id === "nami" && password === "1234")
             ) {
                 onSuccess(id);
             } else {
-                onError(new Error('no access'));
+                onError(new Error("no access"));
             }
         }, 1000);
     }
 
-    getRoles(user, onSuccess, onError)
+    getRoles(user, onSuccess, onError) {
+        setTimeout(() => {
+            if (user === "taenam") {
+                onSuccess({ name: "taenam", role: "admin" });
+            } else {
+                onError(new Error("no access"));
+            }
+        }, 1000);
+    }
 }
