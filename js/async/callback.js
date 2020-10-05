@@ -30,3 +30,22 @@ function printWithDelay(print, timeout) {
 printWithDelay(() => console.log("async callback"), 2000);
 
 // 자바스크립트의 선언?이 호이스팅 된다.
+
+// Callback Hell example
+
+class UserStorage {
+    loginUser (id, password, onSuccess, onError) {
+        setTimeout(()=> {
+            if(
+                (id ==="taenam" && password ==="123") || 
+                (id ==="nami" && password ==="1234")
+            ) {
+                onSuccess(id);
+            } else {
+                onError(new Error('no access'));
+            }
+        }, 1000);
+    }
+
+    getRoles(user, onSuccess, onError)
+}
