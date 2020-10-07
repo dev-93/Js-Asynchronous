@@ -43,15 +43,20 @@ fetchNumber
 // 4.Error Handling
 const getHen = () =>
     new Promise((resolve, reject) => {
-        setTimeout(() => resolve("chicken"), 1000);
+        setTimeout(() => resolve("🐓"), 1000);
     });
 
 const getEgg = (hen) =>
     new Promise((resolve, reject) => {
-        setTimeout(() => resolve(`${hen} => egg`), 1000);
+        setTimeout(() => resolve(`${hen} => 🥚`), 1000);
     });
 
 const getFri = (egg) =>
     new Promise((resolve, reject) => {
-        setTimeout(() => resolve(`${egg} => fri`), 1000);
+        setTimeout(() => resolve(`${egg} => 🍳`), 1000);
     });
+
+getHen()
+    .then((hen) => getEgg(hen))
+    .then((egg) => getFri(egg))
+    .then((meal) => console.log(meal));
