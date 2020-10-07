@@ -56,7 +56,4 @@ const getFri = (egg) =>
         setTimeout(() => resolve(`${egg} => 🍳`), 1000);
     });
 
-getHen()
-    .then((hen) => getEgg(hen))
-    .then((egg) => getFri(egg))
-    .then((meal) => console.log(meal));
+getHen().then(getEgg).then(getFri).then(console.log);
