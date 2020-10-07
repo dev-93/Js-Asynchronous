@@ -48,7 +48,8 @@ const getHen = () =>
 
 const getEgg = (hen) =>
     new Promise((resolve, reject) => {
-        setTimeout(() => resolve(`${hen} => 🥚`), 1000);
+        // setTimeout(() => resolve(`${hen} => 🥚`), 1000);
+        setTimeout(() => reject(new Error(`${hen} => 🥚`)), 1000);
     });
 
 const getFri = (egg) =>
@@ -56,4 +57,11 @@ const getFri = (egg) =>
         setTimeout(() => resolve(`${egg} => 🍳`), 1000);
     });
 
-getHen().then(getEgg).then(getFri).then(console.log);
+getHen() //
+    .then(getEgg)
+    .catch((error) => {
+        return "🍗";
+    })
+    .then(getFri)
+    .then(console.log)
+    .catch(console.log);
