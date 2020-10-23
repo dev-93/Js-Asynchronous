@@ -19,7 +19,7 @@ function delay(ms) {
 }
 
 async function getApple() {
-    await delay(1000);
+    await delay(2000);
     return '🍎'
 }
 
@@ -49,3 +49,9 @@ function pickAllFruits() {
 }
 
 pickFruits().then(console.log);
+
+function pickOnlyOne() {
+    return Promise.race([getApple(), getBanana()]);
+}
+
+pickOnlyOne().then(console.log);
