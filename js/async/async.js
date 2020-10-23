@@ -29,8 +29,10 @@ async function getBanana() {
 }
 
 async function pickFruits() {
-    const apple = await getApple();
-    const banana = await getBanana();
+    const applePromise = getApple();
+    const bananaPromise = getBanana();
+    const apple = await applePromise;
+    const banana = await bananaPromise;
 
     return `${apple} + ${banana}`;
 }
