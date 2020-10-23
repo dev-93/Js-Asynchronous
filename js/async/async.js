@@ -31,10 +31,21 @@ async function getBanana() {
 async function pickFruits() {
     const applePromise = getApple();
     const bananaPromise = getBanana();
+    // Promise를 만들면 바로 코드가 실행이 된다
+    // 병렬적으로 코드 실행 가능
     const apple = await applePromise;
     const banana = await bananaPromise;
 
     return `${apple} + ${banana}`;
+}
+
+pickFruits().then(console.log);
+
+// 3. useful Promise APIs
+
+function pickAllFruits() {
+    return Promise.all([getApple(), getBanana()])
+    .then(fruits => fruits.join(' + '));
 }
 
 pickFruits().then(console.log);
